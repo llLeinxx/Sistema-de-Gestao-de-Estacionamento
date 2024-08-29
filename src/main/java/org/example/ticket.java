@@ -47,21 +47,41 @@ public class ticket {
     public void cadastrarTicket(){
         LocalDateTime now = LocalDateTime.now();
         String dateFormatted = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-        String timeFormatted = now.format(DateTimeFormatter.ofPattern("hh:mm:ss"));
+        String timeFormatted = now.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
 
 
         try {
             conn = DB.getConnection();
-            st = conn.prepareStatement("INSERT INTO ticket (cd_ticket, cd_tipo_veiculo, hr_entrada, dt_entrada) VALUES (?, ?, ?, ?)", 1);
-            st.setInt(1, ticket);
-            st.setInt(2, tipoVeiculo);
-            st.setString(3, timeFormatted);
-            st.setString(4, dateFormatted);
+            st = conn.prepareStatement("INSERT INTO ticket (cd_tipo_veiculo, hr_entrada, dt_entrada) VALUES (?, ?, ?)");
+           // st.setInt(1, ticket);
+            st.setInt(1, tipoVeiculo);
+            st.setString(2, timeFormatted);
+            st.setString(3, dateFormatted);
 
-            int var3 = st.executeUpdate();
-        } catch (SQLException var7) {
-            var7.printStackTrace();
+            st.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
         } finally {
+            DB.closeStatement(st);
+            DB.closeConnection();
+        }
+    }
+    public void finalizarTicket(){
+        LocalDateTime now = LocalDateTime.now();
+        String dateFormatted2 = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        String timeFormatted2 = now.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+
+        try{
+            conn = DB.getConnection();
+            st = conn.prepareStatement("UPDATE ticket set hr_saida = ?, dt_saida = ? WHERE cd_ticket = ?");
+            st.setString(1, timeFormatted2);
+            st.setString(2, dateFormatted2);
+            st.setInt(3, ticket);
+            st.executeUpdate();
+        } catch(SQLException a) {
+            a.printStackTrace();
+        }
+        finally {
             DB.closeStatement(st);
             DB.closeConnection();
         }
