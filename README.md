@@ -6,7 +6,7 @@ O sistema de gestão de estacionamento é um projeto para gerenciar um estaciona
  - Java Development Kit (JDK) 11 ou superior
  - Maven
 
- -  1. **Clone o repositório**
+ 1. **Clone o repositório**
    ```bash
    git clone https://github.com/llLeinxx/Sistema-de-Gestao-de-Estacionamento.git
    cd Sistema-de-Gestao-de-Estacionamento
