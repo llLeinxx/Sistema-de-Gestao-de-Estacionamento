@@ -18,7 +18,7 @@ O sistema de gestão de estacionamento é um projeto para gerenciar um estaciona
  3. **Execute o projeto**
    Para executar o projeto, use o comando:
    ```bash
-   mvn exec:java -Dexec.mainClass="com.exemplo.Main"
+   mvn exec:java -Dexec.mainClass="application.Main"
 
  ### Estrutura do Projeto
  * `src/main/java`: Código-fonte principal do projeto
