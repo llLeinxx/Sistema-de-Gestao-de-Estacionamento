@@ -24,6 +24,7 @@ O sistema de gestão de estacionamento é um projeto para gerenciar um estaciona
  * `src/main/java`: Código-fonte principal do projeto
  * `src/test/java`: Testes automatizados
  * `pom.xml`: Arquivo de configuração do Maven
+```
 
 4. **Pensamentos sobre o projeto**
 Devido a algumas dificuldades, a parte de inserção de vagas foi implementada para que o usuário digite o
