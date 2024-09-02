@@ -5,6 +5,18 @@ O sistema de gestão de estacionamento é um projeto para gerenciar um estaciona
  Certifique-se de ter as seguintes ferramentas instaladas:
  - Java Development Kit (JDK) 11 ou superior
  - Maven
+ - Dependencias para o Mysql Connection
+     ```bash
+   <dependencies>
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.33</version>
+        </dependency>
+
+    </dependencies>
+   ```
 
  1. **Clone o repositório**
    ```bash
